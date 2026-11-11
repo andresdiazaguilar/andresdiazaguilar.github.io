@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Previous favicon (until Nov 2026): a LiDAR sensor with two arcs of scan points. -->
+  <style>
+    .g { fill: #747067 } .s { fill: #b5441e }
+    @media (prefers-color-scheme: dark) { .g { fill: #98928a } .s { fill: #e27c52 } }
+  </style>
+  <circle class="s" cx="16" cy="28" r="2.6"/>
+  <g class="g">
+    <circle cx="6" cy="22" r="1.4"/><circle cx="9" cy="16" r="1.4"/><circle cx="16" cy="13" r="1.4"/><circle cx="23" cy="16" r="1.4"/><circle cx="26" cy="22" r="1.4"/>
+    <circle cx="3" cy="15" r="1.4"/><circle cx="9" cy="7" r="1.4"/><circle cx="16" cy="4" r="1.4"/><circle cx="23" cy="7" r="1.4"/><circle cx="29" cy="15" r="1.4"/>
+  </g>
+</svg>

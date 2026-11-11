@@ -15,7 +15,12 @@ See README.md for structure, editing, and publishing steps.
 - Sticky section bar at the top (about · publications · research · experience · education · news),
   with a light/dark toggle on the right. Dark is the default for everyone (not system-based);
   a visitor's choice is remembered in their browser.
-- All links are accent-coloured; own name in author lists is bold (not underlined).
+- Links in running text (About, research descriptions, Experience, News) use `--link`: a
+  slightly softened orange (dark: accent mixed toward the text colour; light: accent mixed
+  toward the paper, so it doesn't turn brown) with no underline; on hover full orange + underline. Full orange always: the
+  contact row under the photo and the paper/code/cite chips. People's names in `.meta` lines
+  link to their Google Scholar (or a university profile if none) in the line's grey + underline.
+  Author lists (`<div class="authors">`): co-authors grey, own name semibold (600) in text colour.
 - Publications: full author lists, own name in `<span class="me">`. Reviewing is a single
   line under the publications, not a sub-section.
 - Research entries: "Lab (Prof. head), Institution · supervised by <direct supervisors>",
@@ -43,7 +48,8 @@ See README.md for structure, editing, and publishing steps.
   `andresdiazaguilar/andresdiazaguilar.github.io`, Pages from `main` / `docs`). This folder is
   the git repo; owner commits + pushes with GitHub Desktop. Edits go live ~1 min after a push.
 - About text and Research descriptions are now in the owner's own words (Nov 2026).
-- Parked: animated figure in `drafts/scan.js`.
+- Parked: animated figure in `drafts/scan.js`; previous favicon (LiDAR scan) in
+  `drafts/favicon-scan.svg`. Current favicon is a tiny robot arm (`docs/favicon.svg`).
 
 ## Preview
 `powershell -ExecutionPolicy Bypass -File serve.ps1 -Root docs` → http://localhost:8765

@@ -9,6 +9,7 @@
   --muted:  #98928a;
   --rule:   #34312c;
   --accent: #e27c52;
+  --link:   color-mix(in srgb, var(--accent) 75%, var(--ink));   /* links in running text */
   color-scheme: dark;
 }
 :root[data-theme="light"] {
@@ -17,6 +18,7 @@
   --muted:  #747067;
   --rule:   #dcd6ca;
   --accent: #b5441e;
+  --link:   color-mix(in srgb, var(--accent) 80%, var(--paper));
   color-scheme: light;
 }
 
@@ -90,16 +92,19 @@ section, .entry[id] { scroll-margin-top: 3.5rem; }
 :root[data-theme="light"] .theme-toggle .sun { display: block; }
 :root[data-theme="light"] .theme-toggle .moon { display: none; }
 
-/* Anything clickable is accent-coloured; the underline firms up on hover. */
+/* Links in running text: a slightly softened orange with no underline; on hover they turn
+   full orange and get an underline. The contact row under the photo and the paper/code/cite
+   chips stay full orange. */
 a {
-  color: var(--accent);
+  color: var(--link);
   text-decoration: underline;
-  text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  text-decoration-color: transparent;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
-  transition: text-decoration-color .15s;
+  transition: color .15s, text-decoration-color .15s;
 }
-a:hover { text-decoration-color: var(--accent); }
+a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+.under-hero nav a { color: var(--accent); text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent); }
 
 .mono {
   font-family: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
@@ -245,6 +250,9 @@ p { margin: 0 0 1rem; }
 }
 .entry .title { font-weight: 500; }
 .entry .meta  { color: var(--muted); font-size: .94rem; }
+/* People's names in meta lines link to their profiles: same grey as the line, just underlined. */
+.entry .meta a { color: inherit; text-decoration-color: color-mix(in srgb, var(--muted) 60%, transparent); }
+.entry .meta a:hover { color: var(--ink); text-decoration-color: currentColor; }
 .entry .note  { font-size: .94rem; margin-top: .25rem; }
 .entry .links {
   margin-top: .3rem;
@@ -301,6 +309,26 @@ p { margin: 0 0 1rem; }
 :root:not([data-theme="light"]) .thumb { filter: brightness(.93); }
 .thumb:hover { border-color: var(--accent); }
 
+/* Enlarged figure: same white card as the plates, page dimmed behind it. */
+.lightbox {
+  padding: 1.25rem;
+  border: 0;
+  border-radius: 3px;
+  background: #fff;
+  max-width: none;
+  max-height: none;
+  cursor: zoom-out;
+}
+.lightbox::backdrop { background: rgba(0, 0, 0, .78); }
+.lightbox img {
+  display: block;
+  width: min(92vw - 2.5rem, 84rem);
+  height: auto;
+  max-height: calc(90vh - 2.5rem);
+  object-fit: contain;
+}
+.thumb { cursor: zoom-in; }
+
 /* Let entry content shrink so wide children (like the BibTeX panel) scroll instead of overflowing. */
 .entry > div { min-width: 0; }
 
@@ -344,7 +372,9 @@ p { margin: 0 0 1rem; }
 }
 .news .when { color: var(--muted); padding-top: .32rem; }
 
-.me { font-weight: 500; color: var(--ink); }
+/* Author lists: co-authors in grey, own name in the text colour and semibold so it stands out. */
+.authors { color: var(--muted); }
+.me { font-weight: 600; color: var(--ink); }
 
 .aside { color: var(--muted); font-size: .86rem; }
 

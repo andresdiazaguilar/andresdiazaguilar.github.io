@@ -11,7 +11,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap">
   <link rel="stylesheet" href="style.css">
   <script>
     // Apply a visitor's saved light/dark choice before the page paints (dark is the default).
@@ -81,15 +81,15 @@
     </p>
     <p>
       My work at ETH has primarily focused on robotic perception, including
-      research in multi-sensor fusion, 3D velocity estimation, and robust
-      LiDAR-inertial odometry. Before ETH, I completed my BSc in Mechanical
+      research in <a href="#carliv">multi-sensor fusion, 3D velocity estimation</a>, and <a href="#lio">robust
+      LiDAR-inertial odometry</a>. Before ETH, I completed my BSc in Mechanical
       Engineering at <a href="https://www.tue.nl/">TU Eindhoven</a>, graduating
       cum laude with the Honors Academy distinction. During my Bachelor's, I
       worked on active perception for robotics under Prof. Elena Torta as part
       of the Honors Academy program, and later interned at the
       <a href="https://www.tno.nl/">Netherlands Organisation for Applied
       Scientific Research (TNO)</a>, working on
-      <a href="https://doi.org/10.1016/j.ifacol.2025.07.100">battery modeling
+      <a href="#battery">battery modeling
       and fast-charging control research for electric vehicles</a>.
     </p>
     <p>
@@ -112,7 +112,7 @@
       <div class="when mono">2026</div>
       <div>
         <div class="title">CaRLi-V: Camera–RADAR–LiDAR Point-Wise 3D Velocity Estimation</div>
-        <div>L. Guo*, <span class="me">A. M. Diaz Aguilar</span>*, W. Talbot, T. Tuna, M. Hutter, C. Cadena</div>
+        <div class="authors">L. Guo*, <span class="me">A. M. Diaz Aguilar*</span>, W. Talbot, T. Tuna, M. Hutter, C. Cadena</div>
         <div class="meta"><em>IEEE Robotics and Automation Practice (RA-P)</em>, 2026. To be presented at ICRA 2027.</div>
         <div class="links mono">
           <a class="paper" href="https://doi.org/10.1109/RAP.2026.3702579">paper</a>
@@ -126,7 +126,7 @@
       <div class="when mono">2025</div>
       <div>
         <div class="title">Unlocking Electrochemical Battery Modelling: An Open-Source Suite Comparison Methodology</div>
-        <div><span class="me">A. M. Diaz Aguilar</span>, A. Lodge, F. Hoekstra</div>
+        <div class="authors"><span class="me">A. M. Diaz Aguilar</span>, A. Lodge, F. Hoekstra</div>
         <div class="meta"><em>11th IFAC Symposium on Advances in Automotive Control (AAC)</em>, 2025.</div>
         <div class="links mono">
           <a class="paper" href="https://doi.org/10.1016/j.ifacol.2025.07.100">paper</a>
@@ -139,7 +139,7 @@
       <div class="when mono">2025</div>
       <div>
         <div class="title">Why is PyBaMM so P(y)opular? A Comparative Analysis of Open-Source Battery Modelling Tools</div>
-        <div>A. Lodge, <span class="me">A. M. Diaz Aguilar</span>, F. Hoekstra, S. Wilkins</div>
+        <div class="authors">A. Lodge, <span class="me">A. M. Diaz Aguilar</span>, F. Hoekstra, S. Wilkins</div>
         <div class="meta"><em>PyBaMM Battery Modelling Conference</em>, 2025. Poster.</div>
       </div>
     </article>
@@ -152,16 +152,16 @@
   <section id="research">
     <h2>Research</h2>
 
-    <article class="entry">
+    <article class="entry" id="lio">
       <div class="when mono">2026</div>
       <div>
         <a class="thumb" href="img/lio.webp"><img src="img/lio.webp" width="2000" height="659" loading="lazy"
            alt="Two LiDAR maps of a building, before and after: on the left the map is corrupted by a drifting trajectory loop, on the right the improved odometry produces a clean, consistent map."></a>
         <div class="title">Robust LiDAR-Inertial Odometry in Challenging Sensing Regimes</div>
-        <div class="meta">Semester project · Automatic Control Laboratory (Prof. John Lygeros), ETH Zürich &amp; Tinamu Labs · supervised by Dr. Muhammad Zakwan and Dr. Stefan Stevsic</div>
+        <div class="meta">Semester project · Automatic Control Laboratory (Prof. <a href="https://scholar.google.com/citations?user=zIRQZ44AAAAJ">John Lygeros</a>), ETH Zürich &amp; <a href="https://tinamu-labs.com/">Tinamu Labs</a> · supervised by Dr. <a href="https://scholar.google.com/citations?user=ZklPVOUAAAAJ">Muhammad Zakwan</a> and Dr. <a href="https://scholar.google.com/citations?user=IAim0CEAAAAJ">Stefan Stevsic</a></div>
         <div class="note">
-          Developed a real-time LiDAR-inertial odometry system for Tinamu's
-          autonomous drones based on FAST-LIO2. Started by investigating failure
+          Developed a real-time LiDAR-inertial odometry system for <a href="https://tinamu-labs.com/">Tinamu</a>'s
+          autonomous drones based on <a href="https://github.com/hku-mars/FAST_LIO">FAST-LIO2</a>. Started by investigating failure
           modes of FAST-LIO2 observed in Tinamu's field deployments, shown to
           originate from coupled geometric degeneracy, IMU attitude
           misestimation, and map corruption issues. Incorporated LiDAR
@@ -174,13 +174,13 @@
       </div>
     </article>
 
-    <article class="entry">
+    <article class="entry" id="carliv">
       <div class="when mono">2025</div>
       <div>
         <a class="thumb" href="img/carliv.webp"><img src="img/carliv.webp" width="1750" height="515" loading="lazy"
            alt="Point clouds of people walking and moving their arms, with red per-point 3D velocity vectors on the moving body parts."></a>
         <div class="title">CaRLi-V: Point-Wise 3D Velocity from Camera, RADAR &amp; LiDAR</div>
-        <div class="meta">Robotic Systems Lab (Prof. Marco Hutter), ETH Zürich · supervised by Turcan Tuna and William Talbot</div>
+        <div class="meta">Robotic Systems Lab (Prof. <a href="https://scholar.google.com/citations?user=DO3quJYAAAAJ">Marco Hutter</a>), ETH Zürich · supervised by <a href="https://scholar.google.com/citations?user=k31q-owAAAAJ">Turcan Tuna</a> and <a href="https://scholar.google.com/citations?user=ODqL7LoAAAAJ">William Talbot</a></div>
         <div class="note">
           Proposed a camera–RADAR–LiDAR fusion framework for dense, point-wise 3D
           velocity estimation. Introduced a novel <em>velocity cube</em> RADAR
@@ -188,7 +188,7 @@
           combining it with camera-based optical flow and LiDAR geometry to
           recover full 3D velocities (including nonrigid motion). Outperformed
           state-of-the-art scene-flow methods in velocity estimation accuracy on
-          real-world testing. Released as an open-source ROS 2 package.
+          real-world testing. Released as an <a href="https://github.com/Soldann/CaRLi-V">open-source ROS 2 package</a>.
         </div>
         <div class="venue"><span class="tag mono">published</span> <em>IEEE Robotics and Automation Practice</em>, 2026</div>
         <div class="venue"><span class="tag mono">to be presented</span> <em>IEEE ICRA</em>, 2027</div>
@@ -206,12 +206,12 @@
         <a class="thumb" href="img/battery.webp"><img style="--inset: 3%" src="img/battery.webp" width="2000" height="951" loading="lazy"
            alt="Plots comparing PyBaMM and TOOFAB simulations: terminal voltage and anode potential under constant-current, drive-cycle and fast-charge profiles, with the two suites' curves closely overlapping."></a>
         <div class="title">Physics-Based Battery Models for Fast-Charging Control</div>
-        <div class="meta">Internship · TNO · supervised by Feye Hoekstra and Alessio Lodge</div>
+        <div class="meta">Internship · TNO · supervised by <a href="https://scholar.google.com/citations?user=YPA0rnQAAAAJ">Feye Hoekstra</a> and <a href="https://scholar.google.com/citations?user=ZbrSXzIAAAAJ">Alessio Lodge</a></div>
         <div class="note">
           Developed a methodology to compare open-source electrochemical
           battery-modeling suites, and demonstrated it by performing the first
-          comparative study of leading open-source modeling tools (PyBaMM and
-          TOOFAB). Building on this, worked on the development of an
+          comparative study of leading open-source modeling tools (<a href="https://github.com/pybamm-team/PyBaMM">PyBaMM</a> and
+          <a href="https://github.com/tue-battery/TOOFAB">TOOFAB</a>). Building on this, worked on the development of an
           aging-aware fast-charging controller, limiting lithium plating
           through anode-potential constraints.
         </div>
@@ -230,13 +230,18 @@
         <a class="thumb" href="img/microstructure.png"><img src="img/microstructure.png" width="1584" height="326" loading="lazy"
            alt="Four stages of a 3D polycrystal reconstruction in a cube: scattered seed points, growing grains, grains filling the cube, and the final grain structure."></a>
         <div class="title">Through-Thickness Microstructure Reconstruction of Polycrystals Using the Phase Field Method</div>
-        <div class="meta">BSc thesis · Mechanics of Materials group, TU Eindhoven · supervised by Prof. Ron Peerlings · graded 9.5/10</div>
+        <div class="meta">BSc thesis · Mechanics of Materials group, TU Eindhoven · supervised by Prof. <a href="https://research.tue.nl/p/en/persons/ron-hj-peerlings">Ron Peerlings</a> · graded 9.5/10</div>
         <div class="note">
           Developed a physics-based methodology to reconstruct 3D subsurface
           polycrystalline microstructures from limited surface data using
           Allen–Cahn phase fields. The method enables non-destructive
           subsurface characterization, allowing numerical testing of real-life
-          material samples.
+          material samples. Started the research project by developing a
+          phase-field grain growth algorithm to generate artificial
+          polycrystalline microstructures, which was then extended with a novel
+          surface energy penalty and a surface-data initial condition,
+          combining the surface measurements into a single 3D
+          through-thickness reconstruction.
         </div>
         <div class="venue"><span class="tag mono">presented</span> <em>ICMS Multiscale Mechanics and Artificial Microstructures Workshop</em>, 2024</div>
         <div class="links mono">
@@ -251,7 +256,7 @@
         <a class="thumb" href="img/active-perception.svg"><img src="img/active-perception.svg" width="1410" height="456" loading="lazy"
            alt="Four views of two identical objects: from the first viewpoints the detection is ambiguous, after moving the camera one object is confirmed and the others rejected."></a>
         <div class="title">Mesh-Based Object Detection &amp; Active Perception</div>
-        <div class="meta">TU/e Honors Academy, High Tech Systems track · supervised by Prof. Elena Torta</div>
+        <div class="meta">TU/e Honors Academy, High Tech Systems track · supervised by Prof. <a href="https://scholar.google.com/citations?user=-eu9Ia0AAAAJ">Elena Torta</a></div>
         <div class="note">
           RGB-D detection of objects with known meshes via point-cloud
           segmentation and ICP alignment, using detection confidence to pick
@@ -365,7 +370,24 @@
   doi     = {10.1016/j.ifacol.2025.07.100}
 }</template>
 
+<!-- Enlarged research figure, opened by clicking a figure plate. -->
+<dialog class="lightbox" aria-label="Enlarged figure"><img alt=""></dialog>
+
 <script>
+  // Figure plates open the image enlarged on a white card; click anywhere or press Esc to close.
+  const lightbox = document.querySelector(".lightbox");
+  const lightboxImg = lightbox.querySelector("img");
+  document.querySelectorAll("a.thumb").forEach((a) => {
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      const img = a.querySelector("img");
+      lightboxImg.src = a.href;
+      lightboxImg.alt = img.alt;
+      lightbox.showModal();
+    });
+  });
+  lightbox.addEventListener("click", () => lightbox.close());
+
   // "cite": show the BibTeX under the entry, with a copy button. Click again to hide.
   document.querySelectorAll("button.cite").forEach((btn) => {
     btn.addEventListener("click", () => {
