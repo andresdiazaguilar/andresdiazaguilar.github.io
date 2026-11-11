@@ -39,8 +39,9 @@ See README.md for structure, editing, and publishing steps.
 - Don't add files (e.g. thesis PDFs) to `docs/` unless asked: everything in `docs/` gets published.
 
 ## Status
-- Not yet on GitHub / not published. Plan: private repo `andresdiazaguilar.github.io`
-  via GitHub Desktop, later make public and enable Pages from `main` / `docs`.
+- Live since Nov 2026 at https://andresdiazaguilar.github.io (public repo
+  `andresdiazaguilar/andresdiazaguilar.github.io`, Pages from `main` / `docs`). This folder is
+  the git repo; owner commits + pushes with GitHub Desktop. Edits go live ~1 min after a push.
 - About text and Research descriptions are now in the owner's own words (Nov 2026).
 - Parked: animated figure in `drafts/scan.js`.
 

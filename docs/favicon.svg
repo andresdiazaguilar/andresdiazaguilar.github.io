@@ -1,11 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Tiny robot arm in the site colours: grey links, accent-coloured joints. -->
   <style>
-    .g { fill: #747067 } .s { fill: #b5441e }
-    @media (prefers-color-scheme: dark) { .g { fill: #98928a } .s { fill: #e27c52 } }
+    .g { fill: #747067 } .l { stroke: #747067 } .s { fill: #b5441e }
+    @media (prefers-color-scheme: dark) { .g { fill: #98928a } .l { stroke: #98928a } .s { fill: #e27c52 } }
   </style>
-  <circle class="s" cx="16" cy="28" r="2.6"/>
-  <g class="g">
-    <circle cx="6" cy="22" r="1.4"/><circle cx="9" cy="16" r="1.4"/><circle cx="16" cy="13" r="1.4"/><circle cx="23" cy="16" r="1.4"/><circle cx="26" cy="22" r="1.4"/>
-    <circle cx="3" cy="15" r="1.4"/><circle cx="9" cy="7" r="1.4"/><circle cx="16" cy="4" r="1.4"/><circle cx="23" cy="7" r="1.4"/><circle cx="29" cy="15" r="1.4"/>
+  <rect class="g" x="4" y="25" width="12" height="4" rx="1"/>
+  <g class="l" stroke-width="3.2" stroke-linecap="round">
+    <line x1="10" y1="25" x2="10" y2="15"/>
+    <line x1="10" y1="15" x2="21" y2="8"/>
   </g>
+  <g class="l" stroke-width="2" stroke-linecap="round" fill="none">
+    <path d="M21 8l5-1M21 8l3 4"/>
+  </g>
+  <circle class="s" cx="10" cy="15" r="2.4"/>
+  <circle class="s" cx="21" cy="8" r="2.4"/>
 </svg>
