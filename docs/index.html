@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Andres Diaz Aguilar</title>
+  <meta name="description" content="Andres Diaz Aguilar, MSc Mechanical Engineering student at ETH Zürich. Robotic perception and embodied AI.">
+  <meta property="og:title" content="Andres Diaz Aguilar">
+  <meta property="og:description" content="Robotic perception and embodied AI. MSc student at ETH Zürich.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Apply a visitor's saved light/dark choice before the page paints (dark is the default).
+    try { if (localStorage.getItem("theme") === "light") document.documentElement.dataset.theme = "light"; } catch (e) {}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Andres Diaz Aguilar",
+    "affiliation": { "@type": "CollegeOrUniversity", "name": "ETH Zürich" },
+    "email": "mailto:adiazaguilar@ethz.ch",
+    "sameAs": [
+      "https://scholar.google.com/citations?user=CVHrUosAAAAJ",
+      "https://github.com/andresdiazaguilar",
+      "https://www.linkedin.com/in/andresdiazaguilar/"
+    ]
+  }
+  </script>
+</head>
+<body>
+<div class="topbar">
+  <nav class="sections mono" aria-label="Sections">
+    <a href="#about">about</a>
+    <a href="#publications">publications</a>
+    <a href="#research">research</a>
+    <a href="#experience">experience</a>
+    <a href="#education">education</a>
+    <a href="#news">news</a>
+  </nav>
+  <button class="theme-toggle" type="button" aria-label="Switch between light and dark mode">
+    <!-- moon: shown in dark mode -->
+    <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+    <!-- sun: shown in light mode -->
+    <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>
+  </button>
+</div>
+
+<main>
+
+  <header>
+    <div class="hero">
+      <img src="follow-me.jpg" width="1800" height="1200"
+           alt="Andres kneeling on a robot test field at TU Eindhoven, holding a handwritten 'Follow me!' sign towards a small wheeled robot with a camera and LiDAR.">
+      <div class="hero-text">
+        <h1>Andres Diaz Aguilar</h1>
+        <p class="tagline">Robotic perception &amp; embodied AI</p>
+      </div>
+    </div>
+    <div class="under-hero">
+      <nav class="mono">
+        <a href="mailto:adiazaguilar@ethz.ch">adiazaguilar@ethz.ch</a>
+        <a href="https://scholar.google.com/citations?user=CVHrUosAAAAJ&amp;hl=en">google scholar</a>
+        <a href="https://github.com/andresdiazaguilar">github</a>
+        <a href="https://www.linkedin.com/in/andresdiazaguilar/">linkedin</a>
+        <a href="cv.pdf">cv (pdf)</a>
+      </nav>    </div>
+  </header>
+
+  <!-- ============================================================ -->
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      I'm a second-year MSc student in Mechanical Engineering at
+      <a href="https://ethz.ch/">ETH Zürich</a> and a research assistant at the
+      <a href="https://rsl.ethz.ch/">Robotic Systems Lab</a>.
+    </p>
+    <p>
+      My work at ETH has primarily focused on robotic perception, including
+      research in multi-sensor fusion, 3D velocity estimation, and robust
+      LiDAR-inertial odometry. Before ETH, I completed my BSc in Mechanical
+      Engineering at <a href="https://www.tue.nl/">TU Eindhoven</a>, graduating
+      cum laude with the Honors Academy distinction. During my Bachelor's, I
+      worked on active perception for robotics under Prof. Elena Torta as part
+      of the Honors Academy program, and later interned at the
+      <a href="https://www.tno.nl/">Netherlands Organisation for Applied
+      Scientific Research (TNO)</a>, working on
+      <a href="https://doi.org/10.1016/j.ifacol.2025.07.100">battery modeling
+      and fast-charging control research for electric vehicles</a>.
+    </p>
+    <p>
+      My research interests include robot learning, reinforcement learning, and
+      the intersection of learning-based and model-based control. I'm currently
+      looking for a Master's thesis in robot learning and control. If you're
+      working on something interesting in this space,
+      <a href="mailto:adiazaguilar@ethz.ch">get in touch</a>.
+    </p>
+  </section>
+
+  <!-- ============================================================
+       Publications. To add one, copy an <article> block.
+       Mark yourself with <span class="me">…</span>.
+       ============================================================ -->
+  <section id="publications">
+    <h2>Publications</h2>
+
+    <article class="entry">
+      <div class="when mono">2026</div>
+      <div>
+        <div class="title">CaRLi-V: Camera–RADAR–LiDAR Point-Wise 3D Velocity Estimation</div>
+        <div>L. Guo*, <span class="me">A. M. Diaz Aguilar</span>*, W. Talbot, T. Tuna, M. Hutter, C. Cadena</div>
+        <div class="meta"><em>IEEE Robotics and Automation Practice (RA-P)</em>, 2026. To be presented at ICRA 2027.</div>
+        <div class="links mono">
+          <a class="paper" href="https://doi.org/10.1109/RAP.2026.3702579">paper</a>
+          <a class="code" href="https://github.com/Soldann/CaRLi-V">code</a>
+          <button class="cite" type="button" data-bib="carliv">cite</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="when mono">2025</div>
+      <div>
+        <div class="title">Unlocking Electrochemical Battery Modelling: An Open-Source Suite Comparison Methodology</div>
+        <div><span class="me">A. M. Diaz Aguilar</span>, A. Lodge, F. Hoekstra</div>
+        <div class="meta"><em>11th IFAC Symposium on Advances in Automotive Control (AAC)</em>, 2025.</div>
+        <div class="links mono">
+          <a class="paper" href="https://doi.org/10.1016/j.ifacol.2025.07.100">paper</a>
+          <button class="cite" type="button" data-bib="unlocking">cite</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="when mono">2025</div>
+      <div>
+        <div class="title">Why is PyBaMM so P(y)opular? A Comparative Analysis of Open-Source Battery Modelling Tools</div>
+        <div>A. Lodge, <span class="me">A. M. Diaz Aguilar</span>, F. Hoekstra, S. Wilkins</div>
+        <div class="meta"><em>PyBaMM Battery Modelling Conference</em>, 2025. Poster.</div>
+      </div>
+    </article>
+
+    <p class="aside">* equal contribution</p>
+    <p class="reviewing">Reviewer for IEEE ICRA 2027 and IFAC AAC 2025.</p>
+  </section>
+
+  <!-- ============================================================ -->
+  <section id="research">
+    <h2>Research</h2>
+
+    <article class="entry">
+      <div class="when mono">2026</div>
+      <div>
+        <a class="thumb" href="img/lio.webp"><img src="img/lio.webp" width="2000" height="659" loading="lazy"
+           alt="Two LiDAR maps of a building, before and after: on the left the map is corrupted by a drifting trajectory loop, on the right the improved odometry produces a clean, consistent map."></a>
+        <div class="title">Robust LiDAR-Inertial Odometry in Challenging Sensing Regimes</div>
+        <div class="meta">Semester project · Automatic Control Laboratory (Prof. John Lygeros), ETH Zürich &amp; Tinamu Labs · supervised by Dr. Muhammad Zakwan and Dr. Stefan Stevsic</div>
+        <div class="note">
+          Developed a real-time LiDAR-inertial odometry system for Tinamu's
+          autonomous drones based on FAST-LIO2. Started by investigating failure
+          modes of FAST-LIO2 observed in Tinamu's field deployments, shown to
+          originate from coupled geometric degeneracy, IMU attitude
+          misestimation, and map corruption issues. Incorporated LiDAR
+          intensity-augmented registration, motion-aware correspondence
+          filtering, and probabilistic weighting to suppress noise-dominated
+          LiDAR update directions, improving odometry robustness and overcoming
+          prior mapping failures in field deployments.
+        </div>
+        <div class="venue"><span class="tag mono">in preparation</span> Manuscript</div>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="when mono">2025</div>
+      <div>
+        <a class="thumb" href="img/carliv.webp"><img src="img/carliv.webp" width="1750" height="515" loading="lazy"
+           alt="Point clouds of people walking and moving their arms, with red per-point 3D velocity vectors on the moving body parts."></a>
+        <div class="title">CaRLi-V: Point-Wise 3D Velocity from Camera, RADAR &amp; LiDAR</div>
+        <div class="meta">Robotic Systems Lab (Prof. Marco Hutter), ETH Zürich · supervised by Turcan Tuna and William Talbot</div>
+        <div class="note">
+          Proposed a camera–RADAR–LiDAR fusion framework for dense, point-wise 3D
+          velocity estimation. Introduced a novel <em>velocity cube</em> RADAR
+          representation that preserves dense radial velocity information,
+          combining it with camera-based optical flow and LiDAR geometry to
+          recover full 3D velocities (including nonrigid motion). Outperformed
+          state-of-the-art scene-flow methods in velocity estimation accuracy on
+          real-world testing. Released as an open-source ROS 2 package.
+        </div>
+        <div class="venue"><span class="tag mono">published</span> <em>IEEE Robotics and Automation Practice</em>, 2026</div>
+        <div class="venue"><span class="tag mono">to be presented</span> <em>IEEE ICRA</em>, 2027</div>
+        <div class="links mono">
+          <a class="paper" href="https://doi.org/10.1109/RAP.2026.3702579">paper</a>
+          <a class="code" href="https://github.com/Soldann/CaRLi-V">code</a>
+          <button class="cite" type="button" data-bib="carliv">cite</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="entry" id="battery">
+      <div class="when mono">2025</div>
+      <div>
+        <a class="thumb" href="img/battery.webp"><img style="--inset: 3%" src="img/battery.webp" width="2000" height="951" loading="lazy"
+           alt="Plots comparing PyBaMM and TOOFAB simulations: terminal voltage and anode potential under constant-current, drive-cycle and fast-charge profiles, with the two suites' curves closely overlapping."></a>
+        <div class="title">Physics-Based Battery Models for Fast-Charging Control</div>
+        <div class="meta">Internship · TNO · supervised by Feye Hoekstra and Alessio Lodge</div>
+        <div class="note">
+          Developed a methodology to compare open-source electrochemical
+          battery-modeling suites, and demonstrated it by performing the first
+          comparative study of leading open-source modeling tools (PyBaMM and
+          TOOFAB). Building on this, worked on the development of an
+          aging-aware fast-charging controller, limiting lithium plating
+          through anode-potential constraints.
+        </div>
+        <div class="venue"><span class="tag mono">published</span> <em>IFAC Symposium on Advances in Automotive Control</em>, 2025</div>
+        <div class="venue"><span class="tag mono">presented</span> Poster, <em>PyBaMM Battery Modelling Conference</em>, 2025</div>
+        <div class="links mono">
+          <a class="paper" href="https://doi.org/10.1016/j.ifacol.2025.07.100">paper</a>
+          <button class="cite" type="button" data-bib="unlocking">cite</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="when mono">2024</div>
+      <div>
+        <a class="thumb" href="img/microstructure.png"><img src="img/microstructure.png" width="1584" height="326" loading="lazy"
+           alt="Four stages of a 3D polycrystal reconstruction in a cube: scattered seed points, growing grains, grains filling the cube, and the final grain structure."></a>
+        <div class="title">Through-Thickness Microstructure Reconstruction of Polycrystals Using the Phase Field Method</div>
+        <div class="meta">BSc thesis · Mechanics of Materials group, TU Eindhoven · supervised by Prof. Ron Peerlings · graded 9.5/10</div>
+        <div class="note">
+          Developed a physics-based methodology to reconstruct 3D subsurface
+          polycrystalline microstructures from limited surface data using
+          Allen–Cahn phase fields. The method enables non-destructive
+          subsurface characterization, allowing numerical testing of real-life
+          material samples.
+        </div>
+        <div class="venue"><span class="tag mono">presented</span> <em>ICMS Multiscale Mechanics and Artificial Microstructures Workshop</em>, 2024</div>
+        <div class="links mono">
+          <a class="paper" href="https://research.tue.nl/en/studentTheses/through-thickness-microstructure-reconstruction-of-polycrystals-u">thesis</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="when mono">2024</div>
+      <div>
+        <a class="thumb" href="img/active-perception.svg"><img src="img/active-perception.svg" width="1410" height="456" loading="lazy"
+           alt="Four views of two identical objects: from the first viewpoints the detection is ambiguous, after moving the camera one object is confirmed and the others rejected."></a>
+        <div class="title">Mesh-Based Object Detection &amp; Active Perception</div>
+        <div class="meta">TU/e Honors Academy, High Tech Systems track · supervised by Prof. Elena Torta</div>
+        <div class="note">
+          RGB-D detection of objects with known meshes via point-cloud
+          segmentation and ICP alignment, using detection confidence to pick
+          viewpoints that resolve ambiguous detections.
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============================================================ -->
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <article class="entry">
+      <div class="when mono">2026 –</div>
+      <div>
+        <div class="title">Research Assistant, Robotic Systems Lab, ETH Zürich</div>
+        <div class="note">Robot hardware design and experimental platforms for the lab's research.</div>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="when mono">2025 – 26</div>
+      <div>
+        <div class="title">Research Assistant, Institute for Dynamic Systems and Control, ETH Zürich</div>
+        <div class="note"><a href="https://www.perfusionx.ch/">PerfusionX Lab</a>, Prof. Christopher Onder's group. Design, fabrication and assembly of a novel ex-vivo perfusion machine for medical research.</div>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="when mono">2024 – 25</div>
+      <div>
+        <div class="title">Battery Modeling &amp; Control Intern, TNO</div>
+        <div class="note">Research in physics-based battery modeling and fast-charging control (see <a href="#battery">research section</a>).</div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============================================================ -->
+  <section id="education">
+    <h2>Education</h2>
+
+    <article class="entry">
+      <div class="when mono">2024 –</div>
+      <div>
+        <div class="title">MSc Mechanical Engineering, ETH Zürich</div>
+        <div class="meta">GPA 5.21 / 6.00</div>
+        <div class="note">Coursework: Perception and Learning for Robotics, Probabilistic AI, Introduction to Machine Learning, Computational Control, Model Predictive Control, Embedded Control Systems, Vision Algorithms for Mobile Robotics.</div>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="when mono">2021 – 24</div>
+      <div>
+        <div class="title">BSc Mechanical Engineering, TU Eindhoven</div>
+        <div class="meta">Cum laude (top 4%), Honors Academy distinction</div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============================================================
+       News. Newest first; one line each. Copy an <li> to add one.
+       ============================================================ -->
+  <section id="news">
+    <h2>News</h2>
+    <ul class="news">
+      <li><span class="when mono">Nov 2026</span><span>Looking for a master thesis in robot learning / learning-based control.</span></li>
+      <li><span class="when mono">Aug 2026</span><span>Joined the <a href="https://rsl.ethz.ch">ETH Robotic Systems Lab</a> as a research assistant.</span></li>
+      <li><span class="when mono">Jul 2026</span><span>Wrapped up my semester project on robust LiDAR-inertial odometry with <a href="https://tinamu-labs.com/">Tinamu Labs</a>.</span></li>
+      <li><span class="when mono">Jun 2026</span><span><a href="https://doi.org/10.1109/RAP.2026.3702579"><em>CaRLi-V: Camera–RADAR–LiDAR Point-Wise 3D Velocity Estimation</em></a> published in IEEE Robotics and Automation Practice, to be presented at ICRA 2027.</span></li>
+      <li><span class="when mono">Sep 2025</span><span>Joined the <a href="https://www.perfusionx.ch/">PerfusionX Lab</a> at the <a href="https://idsc.ethz.ch">ETH Institute for Dynamic Systems and Control</a> as a research assistant.</span></li>
+      <li><span class="when mono">Jun 2025</span><span>Presented <a href="https://doi.org/10.1016/j.ifacol.2025.07.100"><em>Unlocking Electrochemical Battery Modelling: An Open-Source Suite Comparison Methodology</em></a> at the 11th IFAC Symposium on Advances in Automotive Control (AAC 2025).</span></li>
+      <li><span class="when mono">Sep 2024</span><span>Joined <a href="https://www.tno.nl/">TNO (Netherlands Organisation for Applied Scientific Research)</a> as an intern, working on battery modeling and fast-charging control.</span></li>
+    </ul>
+  </section>
+
+  <!-- ============================================================ -->
+  <section id="misc">
+    <h2>Misc</h2>
+    <p>I speak Spanish, Portuguese, English and French.</p>
+  </section>
+
+  <footer class="mono">
+    <span>Andres Diaz Aguilar</span>
+    <span>Updated November 2026</span>
+  </footer>
+
+</main>
+<!-- ============================================================
+     BibTeX for the "cite" buttons (from Crossref). Key = data-bib.
+     To add one: copy a <template>, give it id="bib-<key>", and add
+     <button class="cite" type="button" data-bib="<key>">cite</button>.
+     ============================================================ -->
+<template id="bib-carliv">@article{guo2026carliv,
+  title   = {{CaRLi-V}: Camera--{RADAR}--{LiDAR} Point-Wise {3-D} Velocity Estimation},
+  author  = {Guo, Landson and Diaz Aguilar, Andres M. and Talbot, William and Tuna, Turcan and Hutter, Marco and Cadena, Cesar},
+  journal = {IEEE Robotics and Automation Practice},
+  volume  = {1},
+  pages   = {138--143},
+  year    = {2026},
+  doi     = {10.1109/RAP.2026.3702579}
+}</template>
+<template id="bib-unlocking">@article{diazaguilar2025unlocking,
+  title   = {Unlocking Electrochemical Battery Modelling: An Open-Source Suite Comparison Methodology},
+  author  = {Diaz Aguilar, Andres M. and Lodge, Alessio A. and Hoekstra, Feye S. J.},
+  journal = {IFAC-PapersOnLine},
+  volume  = {59},
+  number  = {5},
+  pages   = {169--174},
+  year    = {2025},
+  doi     = {10.1016/j.ifacol.2025.07.100}
+}</template>
+
+<script>
+  // "cite": show the BibTeX under the entry, with a copy button. Click again to hide.
+  document.querySelectorAll("button.cite").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const row = btn.closest(".links");
+      const open = row.nextElementSibling;
+      if (open && open.classList.contains("bib")) { open.remove(); btn.classList.remove("on"); return; }
+      const text = document.getElementById("bib-" + btn.dataset.bib).innerHTML.trim();
+      const box = document.createElement("div");
+      box.className = "bib";
+      box.innerHTML = '<pre></pre><button type="button" class="copy mono">copy</button>';
+      box.querySelector("pre").textContent = text;
+      box.querySelector(".copy").addEventListener("click", async (e) => {
+        try { await navigator.clipboard.writeText(text); e.target.textContent = "copied"; }
+        catch { getSelection().selectAllChildren(box.querySelector("pre")); e.target.textContent = "press ctrl+c"; }
+        setTimeout(() => (e.target.textContent = "copy"), 1500);
+      });
+      row.after(box);
+      btn.classList.add("on");
+    });
+  });
+
+  // Light/dark toggle; the choice is remembered in this visitor's browser.
+  document.querySelector(".theme-toggle").addEventListener("click", () => {
+    const root = document.documentElement;
+    const light = root.dataset.theme !== "light";
+    if (light) root.dataset.theme = "light"; else delete root.dataset.theme;
+    try { localStorage.setItem("theme", light ? "light" : "dark"); } catch (e) {}
+  });
+
+  // Underline the section-bar link for whichever section is on screen.
+  (() => {
+    // The current section is the last one whose top has passed 30% of the window.
+    const links = [...document.querySelectorAll(".sections a")];
+    const sections = links.map((a) => document.getElementById(a.hash.slice(1)));
+    let ticking = false;
+    function update() {
+      ticking = false;
+      let current = -1;
+      sections.forEach((s, i) => { if (s && s.getBoundingClientRect().top < innerHeight * 0.3) current = i; });
+      links.forEach((a, i) => a.classList.toggle("on", i === current));
+    }
+    addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    addEventListener("resize", update);
+    update();
+  })();
+</script>
+</body>
+</html>

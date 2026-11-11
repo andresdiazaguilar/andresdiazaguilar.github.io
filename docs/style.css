@@ -1,0 +1,390 @@
+/* ------------------------------------------------------------------
+   Colours. Change --accent to re-tint the whole site.
+   Dark is the default for everyone; the toggle in the section bar sets
+   data-theme="light" on <html> (remembered per visitor).
+   ------------------------------------------------------------------ */
+:root {
+  --paper:  #141412;
+  --ink:    #e7e3d9;
+  --muted:  #98928a;
+  --rule:   #34312c;
+  --accent: #e27c52;
+  color-scheme: dark;
+}
+:root[data-theme="light"] {
+  --paper:  #f6f4ef;
+  --ink:    #1d1c1a;
+  --muted:  #747067;
+  --rule:   #dcd6ca;
+  --accent: #b5441e;
+  color-scheme: light;
+}
+
+/* ------------------------------------------------------------------
+   Base
+   ------------------------------------------------------------------ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Newsreader", "Iowan Old Style", Georgia, serif;
+  font-optical-sizing: auto;
+  font-size: 18px;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: color-mix(in srgb, var(--accent) 22%, transparent); }
+
+main {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 4rem;
+}
+body { overflow-x: clip; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+section, .entry[id] { scroll-margin-top: 3.5rem; }
+
+/* Section shortcuts, pinned to the top while scrolling. */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--rule);
+}
+.sections {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: .25rem 1.4rem;
+  padding: .85rem 3rem;
+  color: var(--muted);
+}
+.sections a { color: inherit; text-decoration-color: transparent; }
+.sections a:hover { color: var(--ink); }
+.sections a.on { color: var(--ink); text-decoration-color: var(--accent); }
+
+/* Light/dark switch, pinned to the right end of the section bar. */
+.theme-toggle {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: 0;
+  padding: .25rem;
+  color: var(--muted);
+  cursor: pointer;
+  line-height: 0;
+}
+.theme-toggle:hover { color: var(--ink); }
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .sun { display: none; }
+:root[data-theme="light"] .theme-toggle .sun { display: block; }
+:root[data-theme="light"] .theme-toggle .moon { display: none; }
+
+/* Anything clickable is accent-coloured; the underline firms up on hover. */
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: text-decoration-color .15s;
+}
+a:hover { text-decoration-color: var(--accent); }
+
+.mono {
+  font-family: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-size: .74rem;
+  letter-spacing: .01em;
+}
+
+/* ------------------------------------------------------------------
+   Header
+   ------------------------------------------------------------------ */
+header h1 {
+  font-weight: 400;
+  font-size: 2.5rem;
+  line-height: 1.1;
+  letter-spacing: -.015em;
+  margin: 0 0 .35rem;
+}
+header .tagline {
+  font-style: italic;
+  color: var(--muted);
+  margin: 0 0 1.4rem;
+}
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .3rem 1.1rem;
+  color: var(--muted);
+}
+header nav a:hover { text-decoration-color: var(--accent); }
+
+/* ------------------------------------------------------------------
+   Figure
+   ------------------------------------------------------------------ */
+.fig { margin: 3rem 0 0; }
+.fig canvas {
+  display: block;
+  width: 100%;
+  height: 190px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.fig figcaption {
+  margin-top: .6rem;
+  font-size: .86rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+.fig figcaption b { font-weight: 500; color: var(--ink); }
+
+/* Photo with the name set over it. Never taller than ~55% of the window (so
+   the intro text is visible on first load), and wider than the text column
+   when there is room. */
+.hero {
+  --w: min(60rem, 100vw - 2.5rem, max(82svh, 43.5rem));
+  position: relative;
+  container-type: inline-size;
+  width: var(--w);
+  margin-left: calc(50% - var(--w) / 2);
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: 0 0 3px 3px;
+}
+.hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 75% 50%;
+}
+/* Gentle shade only in the corner where the name sits. */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 45% at 100% 100%, rgba(0, 0, 0, .38), transparent);
+  pointer-events: none;
+}
+.hero-text {
+  position: absolute;
+  right: 4.5%;
+  bottom: 6%;
+  z-index: 1;
+  text-align: right;
+  color: #fff;
+  text-shadow: 0 1px 14px rgba(0, 0, 0, .35);
+}
+.hero-text h1 { font-size: clamp(1.6rem, 5.6cqi, 3.4rem); margin: 0; }
+.hero-text .tagline { font-size: clamp(.82rem, 1.9cqi, 1.1rem); color: rgba(255, 255, 255, .88); margin: .35rem 0 0; }
+
+.under-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: .5rem 1.5rem;
+  margin-top: 1rem;
+}
+
+/* ------------------------------------------------------------------
+   Sections
+   ------------------------------------------------------------------ */
+section { margin-top: 3.75rem; }
+#about { margin-top: 2.25rem; }
+
+h2 {
+  font-weight: 400;
+  font-size: 1rem;
+  font-variant: small-caps;
+  text-transform: lowercase;
+  letter-spacing: .09em;
+  color: var(--muted);
+  margin: 0 0 1.4rem;
+}
+h2::before { content: "§ "; color: var(--accent); letter-spacing: 0; }
+
+p { margin: 0 0 1rem; }
+
+/* A highlighted outcome line under a project, e.g. where it was presented. */
+.entry .venue { font-size: .94rem; margin-top: .4rem; }
+.entry .venue .tag {
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  border-radius: 2px;
+  padding: .05rem .35rem;
+  margin-right: .3rem;
+  vertical-align: .08em;
+}
+
+.reviewing { margin-top: 1.25rem; font-size: .94rem; }
+
+/* One row per item: date on the left, content on the right. */
+.entry {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.6rem;
+}
+.entry > .when {
+  color: var(--muted);
+  padding-top: .32rem;
+  font-variant-numeric: tabular-nums;
+}
+.entry .title { font-weight: 500; }
+.entry .meta  { color: var(--muted); font-size: .94rem; }
+.entry .note  { font-size: .94rem; margin-top: .25rem; }
+.entry .links {
+  margin-top: .3rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .2rem .9rem;
+}
+
+/* paper / code / cite: soft filled chips with a small icon (same text size as the tags). */
+.entry .links { gap: .35rem .5rem; }
+.links a, .links button.cite {
+  display: inline-flex;
+  align-items: center;
+  gap: .35em;
+  font: inherit;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 13%, transparent);
+  border: 0;
+  border-radius: 2px;
+  padding: .12rem .5rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .15s;
+}
+.links a:hover, .links button.cite:hover, .links button.cite.on {
+  background: color-mix(in srgb, var(--accent) 24%, transparent);
+}
+/* Icons are masks filled with the text colour, so they follow the theme. */
+.links .paper::before, .links .code::before, .links .cite::before {
+  content: "";
+  width: 11px;
+  height: 11px;
+  flex: none;
+  background: currentColor;
+  -webkit-mask: var(--icon) center / contain no-repeat;
+          mask: var(--icon) center / contain no-repeat;
+}
+.links .paper { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.5' stroke-linejoin='round'%3E%3Cpath d='M4 1.5h5l3 3v10H4z'/%3E%3Cpath d='M9 1.5v3h3M6 8.5h4M6 11h4'/%3E%3C/svg%3E"); }
+.links .code  { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5.5 4.5 2 8l3.5 3.5M10.5 4.5 14 8l-3.5 3.5'/%3E%3C/svg%3E"); }
+.links .cite  { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='black'%3E%3Cpath d='M2.5 9.5C2.5 6.5 4 4.5 6.8 4v1.7C5.5 6.1 4.9 7 4.8 8h2v4.5H2.5zm6.7 0c0-3 1.5-5 4.3-5.5v1.7c-1.3.4-1.9 1.3-2 2.3h2v4.5H9.2z'/%3E%3C/svg%3E"); }
+
+/* Research figures: a "figure plate" above the title, as wide as the text, fixed height,
+   image centered on a white card (in both themes) so every project looks uniform. */
+.thumb {
+  display: block;
+  margin: .2rem 0 .9rem;
+  padding: .75rem;
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+}
+.thumb img { display: block; width: 100%; height: auto; max-height: 17rem; object-fit: contain; padding-inline: var(--inset, 0); }
+/* style="--inset: 5%" on an <img> adds white margin left/right, so a tall-ish figure shows shorter. */
+:root:not([data-theme="light"]) .thumb { filter: brightness(.93); }
+.thumb:hover { border-color: var(--accent); }
+
+/* Let entry content shrink so wide children (like the BibTeX panel) scroll instead of overflowing. */
+.entry > div { min-width: 0; }
+
+/* The BibTeX panel opened by "cite". */
+.bib {
+  position: relative;
+  margin-top: .6rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--ink) 4%, var(--paper));
+}
+.bib pre {
+  margin: 0;
+  padding: .8rem 1rem;
+  overflow-x: auto;
+  font-family: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-size: .72rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.bib .copy {
+  position: absolute;
+  top: .4rem;
+  right: .5rem;
+  font-size: .7rem;
+  color: var(--muted);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: .1rem .45rem;
+  cursor: pointer;
+}
+.bib .copy:hover { color: var(--ink); }
+
+.news { list-style: none; margin: 0; padding: 0; }
+.news li {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 1.25rem;
+  margin-bottom: .55rem;
+}
+.news .when { color: var(--muted); padding-top: .32rem; }
+
+.me { font-weight: 500; color: var(--ink); }
+
+.aside { color: var(--muted); font-size: .86rem; }
+
+footer {
+  margin-top: 5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+@media (max-width: 560px) {
+  .hero { aspect-ratio: 1 / 1; }
+  .hero img { object-position: 66% 50%; }
+  .sections {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 1.1rem;
+    padding-left: 1.25rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    white-space: nowrap;
+  }
+  .sections::-webkit-scrollbar { display: none; }
+  /* Links scroll underneath the toggle; give it a backdrop with a short fade. */
+  .theme-toggle {
+    right: 0;
+    padding: .25rem 1rem .25rem 1.5rem;
+    background: linear-gradient(to right, transparent, var(--paper) 40%);
+  }
+  .hero-text h1 { font-size: 1.6rem; }
+  .hero-text .tagline { font-size: .82rem; margin-top: .15rem; }
+  .under-hero { flex-direction: column; }
+  .entry, .news li { grid-template-columns: 1fr; gap: .1rem; }
+  .thumb { padding: .5rem; margin-top: .35rem; }
+  .thumb img { max-height: 13rem; }
+  .news li { margin-bottom: .9rem; }
+  .entry > .when { padding-top: 0; }
+  .fig canvas { height: 160px; }
+}
