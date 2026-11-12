@@ -10,9 +10,10 @@ See README.md for structure, editing, and publishing steps.
 - Header: photo (`docs/follow-me.jpg`) with name + tagline overlaid bottom-right; height
   capped so the intro text is visible on a laptop's first screen; square crop on phones.
   No caption under the photo. Don't put it full-bleed.
-- Section order: About, Publications, Research, Experience, Education, News, Misc. News sits
+- Section order: About, Publications, Research, Experience, Education, News, Outside the lab
+  (personal bio: where I grew up, languages, hobbies; `id="misc"`). News sits
   low on purpose (too few items to lead with); move it to its own page once it has ~12+ items.
-- Sticky section bar at the top (about · publications · research · experience · education · news),
+- Sticky section bar at the top (about · publications · research · experience · education · news · outside the lab),
   with a light/dark toggle on the right. Dark is the default for everyone (not system-based);
   a visitor's choice is remembered in their browser.
 - Links in running text (About, research descriptions, Experience, News) use `--link`: a
@@ -48,6 +49,10 @@ See README.md for structure, editing, and publishing steps.
   `andresdiazaguilar/andresdiazaguilar.github.io`, Pages from `main` / `docs`). This folder is
   the git repo; owner commits + pushes with GitHub Desktop. Edits go live ~1 min after a push.
 - About text and Research descriptions are now in the owner's own words (Nov 2026).
+- Section headings keep the orange "§" (Nov 2026). Alternatives tried and possibly revisited:
+  the robot-arm icon (mask of `favicon.svg`, ~1.15em) or an orange "/".
+- Candidate microstructure figure (thick block, original vs reconstruction, from the
+  follow-up project's Obsidian notes, Meeting 13 image 38) was prepared but not used yet.
 - Parked: animated figure in `drafts/scan.js`; previous favicon (LiDAR scan) in
   `drafts/favicon-scan.svg`. Current favicon is a tiny robot arm (`docs/favicon.svg`).
 

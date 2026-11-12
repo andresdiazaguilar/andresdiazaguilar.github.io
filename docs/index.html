@@ -26,7 +26,6 @@
     "email": "mailto:adiazaguilar@ethz.ch",
     "sameAs": [
       "https://scholar.google.com/citations?user=CVHrUosAAAAJ",
-      "https://github.com/andresdiazaguilar",
       "https://www.linkedin.com/in/andresdiazaguilar/"
     ]
   }
@@ -41,6 +40,7 @@
     <a href="#experience">experience</a>
     <a href="#education">education</a>
     <a href="#news">news</a>
+    <a href="#misc">outside the lab</a>
   </nav>
   <button class="theme-toggle" type="button" aria-label="Switch between light and dark mode">
     <!-- moon: shown in dark mode -->
@@ -65,7 +65,6 @@
       <nav class="mono">
         <a href="mailto:adiazaguilar@ethz.ch">adiazaguilar@ethz.ch</a>
         <a href="https://scholar.google.com/citations?user=CVHrUosAAAAJ&amp;hl=en">google scholar</a>
-        <a href="https://github.com/andresdiazaguilar">github</a>
         <a href="https://www.linkedin.com/in/andresdiazaguilar/">linkedin</a>
         <a href="cv.pdf">cv (pdf)</a>
       </nav>    </div>
@@ -167,8 +166,8 @@
           misestimation, and map corruption issues. Incorporated LiDAR
           intensity-augmented registration, motion-aware correspondence
           filtering, and probabilistic weighting to suppress noise-dominated
-          LiDAR update directions, improving odometry robustness and overcoming
-          prior mapping failures in field deployments.
+          LiDAR update directions to improve robustness, eliminating odometry
+          divergence in all failure cases observed in field deployments.
         </div>
         <div class="venue"><span class="tag mono">in preparation</span> Manuscript</div>
       </div>
@@ -186,8 +185,8 @@
           velocity estimation. Introduced a novel <em>velocity cube</em> RADAR
           representation that preserves dense radial velocity information,
           combining it with camera-based optical flow and LiDAR geometry to
-          recover full 3D velocities (including nonrigid motion). Outperformed
-          state-of-the-art scene-flow methods in velocity estimation accuracy on
+          recover full 3D velocities (including nonrigid motion). Reduced mean
+          velocity error by 31% over state-of-the-art scene-flow methods in
           real-world testing. Released as an <a href="https://github.com/Soldann/CaRLi-V">open-source ROS 2 package</a>.
         </div>
         <div class="venue"><span class="tag mono">published</span> <em>IEEE Robotics and Automation Practice</em>, 2026</div>
@@ -251,16 +250,26 @@
     </article>
 
     <article class="entry">
-      <div class="when mono">2024</div>
+      <div class="when mono">2022 – 24</div>
       <div>
         <a class="thumb" href="img/active-perception.svg"><img src="img/active-perception.svg" width="1410" height="456" loading="lazy"
            alt="Four views of two identical objects: from the first viewpoints the detection is ambiguous, after moving the camera one object is confirmed and the others rejected."></a>
         <div class="title">Mesh-Based Object Detection &amp; Active Perception</div>
         <div class="meta">TU/e Honors Academy, High Tech Systems track · supervised by Prof. <a href="https://scholar.google.com/citations?user=-eu9Ia0AAAAJ">Elena Torta</a></div>
         <div class="note">
-          RGB-D detection of objects with known meshes via point-cloud
-          segmentation and ICP alignment, using detection confidence to pick
-          viewpoints that resolve ambiguous detections.
+          The <a href="https://educationguide.tue.nl/programs/honors-academy/bachelor-students/honors-tracks">TU/e Honors Academy</a>
+          is a selective two-year program taken on top of the BSc (30 extra
+          ECTS), in which multidisciplinary student teams carry out
+          self-directed projects. In the second year of the
+          <a href="https://educationguide.tue.nl/programs/honors-academy/bachelor-students/honors-tracks/high-tech-systems">High Tech Systems track</a>,
+          we developed an object detection algorithm for service robots that
+          requires only the target object's mesh as prior knowledge. Segmented RGB-D
+          observations are matched against precomputed mesh projections using
+          RANSAC- and ICP-based alignment. An
+          active perception strategy then picks camera viewpoints to resolve
+          ambiguous detections. In the first year, we implemented an autonomous
+          exploration and target-search pipeline on a ROSbot 2.0, integrating
+          SLAM, frontier-based exploration, and visual target recognition.
         </div>
       </div>
     </article>
@@ -335,8 +344,19 @@
 
   <!-- ============================================================ -->
   <section id="misc">
-    <h2>Misc</h2>
-    <p>I speak Spanish, Portuguese, English and French.</p>
+    <h2>Outside the lab</h2>
+    <p>
+      I was born in Rio de Janeiro to a Venezuelan and Portuguese family, and
+      grew up moving between Rio, Tokyo, Shanghai and Paris, before coming to
+      Eindhoven for my Bachelor's and to Zürich for my Master's. I went to French schools
+      growing up, so besides native Spanish and Portuguese I also speak French
+      and English.
+    </p>
+    <p>
+      Outside of research, I'm into powerlifting, and I've played the piano
+      since I was five, which grew into a broader love for music and music
+      theory. I also like building computers and photography.
+    </p>
   </section>
 
   <footer class="mono">
@@ -427,6 +447,8 @@
       ticking = false;
       let current = -1;
       sections.forEach((s, i) => { if (s && s.getBoundingClientRect().top < innerHeight * 0.3) current = i; });
+      // The last section is too short to reach that line, so mark it once the page is scrolled to the bottom.
+      if (innerHeight + scrollY >= document.documentElement.scrollHeight - 2) current = sections.length - 1;
       links.forEach((a, i) => a.classList.toggle("on", i === current));
     }
     addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
