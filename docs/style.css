@@ -17,8 +17,8 @@
   --ink:    #1d1c1a;
   --muted:  #747067;
   --rule:   #dcd6ca;
-  --accent: #b5441e;
-  --link:   color-mix(in srgb, var(--accent) 80%, var(--paper));
+  --accent: #c2410c;
+  --link:   var(--accent);   /* full accent: softening it toward the paper washed it out */
   color-scheme: light;
 }
 

@@ -17,8 +17,9 @@ See README.md for structure, editing, and publishing steps.
   with a light/dark toggle on the right. Dark is the default for everyone (not system-based);
   a visitor's choice is remembered in their browser.
 - Links in running text (About, research descriptions, Experience, News) use `--link`: a
-  slightly softened orange (dark: accent mixed toward the text colour; light: accent mixed
-  toward the paper, so it doesn't turn brown) with no underline; on hover full orange + underline. Full orange always: the
+  slightly softened orange in dark mode (accent mixed toward the text colour); in light mode
+  links are the full accent `#c2410c` (mixing toward the paper looked washed out, toward the
+  text turned brown) with no underline; on hover full orange + underline. Full orange always: the
   contact row under the photo and the paper/code/cite chips. People's names in `.meta` lines
   link to their Google Scholar (or a university profile if none) in the line's grey + underline.
   Author lists (`<div class="authors">`): co-authors grey, own name semibold (600) in text colour.
