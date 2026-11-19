@@ -49,6 +49,8 @@ See README.md for structure, editing, and publishing steps.
 - Live since Nov 2026 at https://andresdiazaguilar.github.io (public repo
   `andresdiazaguilar/andresdiazaguilar.github.io`, Pages from `main` / `docs`). This folder is
   the git repo; owner commits + pushes with GitHub Desktop. Edits go live ~1 min after a push.
+- Visitor analytics: GoatCounter script just before `</body>` in index.html (cookie-free, no
+  consent banner needed); dashboard at https://andresdiazaguilar.goatcounter.com (Nov 2026).
 - About text and Research descriptions are now in the owner's own words (Nov 2026).
 - Section headings keep the orange "§" (Nov 2026). Alternatives tried and possibly revisited:
   the robot-arm icon (mask of `favicon.svg`, ~1.15em) or an orange "/".
